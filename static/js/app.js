@@ -40,14 +40,14 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function displayPreview(file) {
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            previewImage.src = event.target.result;
-            previewImage.style.display = "block";
+        const reader = new FileReader();  // Create a new FileReader object
+        reader.onload = function(event) {  // When the file is loaded
+            previewImage.src = event.target.result;  // Set the src of the image to the result
+            previewImage.style.display = "block";  // Make the preview image visible
         };
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(file);  // Read the file as a Data URL (base64 string)
     }
-
+    
     // Upload & Predict
     uploadBtn.addEventListener("click", function() {
         if (fileInput.files.length === 0) {
