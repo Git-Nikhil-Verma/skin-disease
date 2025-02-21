@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Skin Cancer Detection</h1>
+        <p>Upload an image to check if it is Benign or Malignant</p>
+
+        <div class="upload-box" id="uploadBox">
+            <input type="file" id="fileInput" accept="image/*" hidden>
+            <img id="previewImage" src="" alt="Image Preview" style="display: none;">
+            <p>Drag & Drop or <span id="selectFile">Click to Upload</span></p>
+        </div>
+
+        <button id="uploadBtn">Predict</button>
+
+        <div id="result" class="hidden">
+            <h3>Prediction: <span id="predictionText"></span></h3>
+            <img id="resultImage" src="" alt="Uploaded Image">
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
