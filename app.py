@@ -23,6 +23,7 @@ interpreter.allocate_tensors()
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
 
+# Set upload folder
 UPLOAD_FOLDER = "static/uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
@@ -72,4 +73,5 @@ def predict():
     return jsonify({"prediction": class_label, "image": file_path})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Use Render's PORT
+    app.run(host="0.0.0.0", port=port, debug=True)
